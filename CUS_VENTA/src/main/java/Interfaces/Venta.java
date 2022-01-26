@@ -7,7 +7,7 @@ package Interfaces;
  */
 
 /*I: Principio de segregación de interfaz*/
-public interface Ventaxpagweb {
+public interface Venta {
    
      void registrardatosdeboleto();
 }

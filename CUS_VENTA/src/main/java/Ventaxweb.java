@@ -1,5 +1,6 @@
 
-import Interfaces.Ventaxpagweb;
+import Interfaces.Venta;
+
 
 
 
@@ -11,7 +12,7 @@ import Interfaces.Ventaxpagweb;
  * @author USER
  */
 
-class Ventaxweb implements Ventaxpagweb {
+class Ventaxweb implements Venta {
  /*   
     Integer id;
     String nombres;

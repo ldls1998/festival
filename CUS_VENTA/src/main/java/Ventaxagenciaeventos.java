@@ -1,13 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+import Interfaces.Venta;
+
+
 
 /**
  *
  * @author USER
  */
-public class Ventaxagenciaeventos {
+class Ventaxagenciaeventos implements Venta  {
+
+  
+
+    @Override
+    public void registrardatosdeboleto() {
+        //Registrar venta de boleto por agencia
+    }
     
 }

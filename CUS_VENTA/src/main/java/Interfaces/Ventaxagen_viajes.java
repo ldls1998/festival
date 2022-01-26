@@ -7,5 +7,6 @@ package Interfaces;
 
 /*I: Principio de segregación de interfaz*/
 public interface Ventaxagen_viajes {
-     void registrardatosdeboleto();
+     void registrardatosdelviaje();
+
 }
