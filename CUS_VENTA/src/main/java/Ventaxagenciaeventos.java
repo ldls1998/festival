@@ -8,13 +8,6 @@
  *
  * @author USER
  */
-class Boleto_tipoA extends Boleto {
-
-
-    @Override
-                 
-         int precio() { return 100; }
-
-}
+public class Ventaxagenciaeventos {
     
-
+}

@@ -1,3 +1,5 @@
+package DB;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,10 +11,10 @@
  * @author USER
  */
 /*Principio  SOLID de responsabilidad única*/
-public class BoletoDB {
+public class VentaboletoDB {
     
     
-     void guardarAgenciaDB(Boleto boleto){ 
+     void guardarBoletoDB(Boleto boleto){ 
     /*Guarda en la bd del festival*/
     
     }

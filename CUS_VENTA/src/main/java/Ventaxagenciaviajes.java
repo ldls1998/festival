@@ -8,6 +8,6 @@
  *
  * @author USER
  */
-public class Usuario {
+public class Ventaxagenciaviajes {
     
 }
