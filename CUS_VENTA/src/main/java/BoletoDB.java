@@ -8,6 +8,12 @@
  *
  * @author USER
  */
-public class Agenciadeeventos {
+/*Principio  SOLID de responsabilidad única*/
+public class BoletoDB {
     
+    
+     void guardarAgenciaDB(Boleto boleto){ 
+    /*Guarda en la bd del festival*/
+    
+    }
 }

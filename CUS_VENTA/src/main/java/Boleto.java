@@ -1,13 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 /**
  *
  * @author USER
  */
-public class Agenciadeeventos {
+
+/*Principio  SOLID de responsabilidad única*/
+public class Boleto {
+   
+    Integer id;
+    String nombres;
+    String apellidos;
+    String correo;
+    Integer Doc_ident;
+    String Sexo;
+    String Pais;
+    String Departamento;
     
+    
+
+    Boleto(Integer id,String nombres, String apellidos, String correo, Integer Doc_ident,String Sexo,
+            String Pais, String Departamento){ 
+        this.id=id;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.Doc_ident = Doc_ident;
+        this.Sexo = Sexo;
+        this.Pais = Pais;
+        this.Departamento = Departamento;
+    }
+
+    Integer getBoleto(){ 
+        return id; 
+    }
+
+   
 }
