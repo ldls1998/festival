@@ -1,4 +1,5 @@
 
+import Interfaces.Persistencia;
 import Interfaces.Venta;
 import Interfaces.Ventaxagen_viajes;
 
@@ -14,17 +15,29 @@ import Interfaces.Ventaxagen_viajes;
  */
 public class Ventaxagenciaviajes implements Venta, Ventaxagen_viajes{
 
+   Persistencia persistencia;
+
+  
+
+    public Ventaxagenciaviajes(Persistencia persistencia) {
+        this.persistencia = persistencia;
+    }
+  
+
   
 
     @Override
-    public void registrardatosdelviaje() {
-     
+    public void registrardatosdelviaje(Integer id,String nombres,String apellidos,String correo,Integer Doc_ident,
+    String Sexo,String Pais,String Departamento) { 
      //Registrar venta de boletos de viaje
+     persistencia.registrarviaje(id, nombres, apellidos, correo, Doc_ident, Sexo, Pais, Departamento);
     }
     
       @Override
-    public void registrardatosdeboleto() {
+    public void registrardatosdeboleto(Integer id,String nombres,String apellidos,String correo,Integer Doc_ident,
+    String Sexo,String Pais,String Departamento,String tipo) {
      //Registrar venta de boletos de festival
+     persistencia.registrarboleto(id, nombres, apellidos, correo, Doc_ident, Sexo, Pais, Departamento, tipo);
     }
     
     

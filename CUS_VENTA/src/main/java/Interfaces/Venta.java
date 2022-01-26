@@ -9,5 +9,6 @@ package Interfaces;
 /*I: Principio de segregación de interfaz*/
 public interface Venta {
    
-     void registrardatosdeboleto();
+     void registrardatosdeboleto(Integer id,String nombres,String apellidos,String correo,Integer Doc_ident,
+    String Sexo,String Pais,String Departamento,String tipo);
 }

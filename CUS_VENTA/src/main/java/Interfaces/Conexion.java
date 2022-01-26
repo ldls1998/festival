@@ -10,5 +10,5 @@ package Interfaces;
  * @author USER
  */
 public interface Conexion {
-    
+     
 }

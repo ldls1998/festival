@@ -10,5 +10,8 @@ package Interfaces;
  * @author USER
  */
 public interface Persistencia {
-    
+    void registrarviaje(Integer id,String nombres,String apellidos,String correo,Integer Doc_ident,
+    String Sexo,String Pais,String Departamento);
+    void registrarboleto(Integer id,String nombres,String apellidos,String correo,Integer Doc_ident,
+    String Sexo,String Pais,String Departamento,String tipo);
 }
