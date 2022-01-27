@@ -1,4 +1,4 @@
-package DB;
+package Persistencia;
 
 import Interfaces.Persistencia;
 
@@ -8,7 +8,7 @@ import Interfaces.Persistencia;
  * @author USER
  */
 /*Principio  SOLID de responsabilidad única*/
-public class VentaboletoDB implements Persistencia {
+public class DAOVenta implements Persistencia {
     
     
     
@@ -20,7 +20,7 @@ public class VentaboletoDB implements Persistencia {
     }
 
     @Override
-    public void registrarboleto(String nombres, String apellidos, String correo, Integer Doc_ident, String Sexo, String Pais, String Departamento, String tipo) {
+    public void registrarboleto(String nombres, String apellidos, String correo, Integer Doc_ident, String Sexo, String Pais, String Departamento, String tipo,String ubicacion) {
        /*Guarda en la bd del festival*/  
    }
 }

@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Persistencia.TO;
 
 /**
  *
  * @author USER
  */
-public class Agenciadeviaje {
-    
+public class ControladorAction {
+    /*implementa singleton*/
+
 }

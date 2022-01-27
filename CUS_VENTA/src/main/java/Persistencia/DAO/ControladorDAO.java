@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DB;
+package Persistencia;
 
 /**
  *
  * @author USER
  */
-public class AccesoBD {
+public class ControladorDAO {
     
 }

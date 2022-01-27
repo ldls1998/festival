@@ -13,5 +13,5 @@ public interface Persistencia {
     void registrarviaje(String nombres,String apellidos,String correo,Integer Doc_ident,
     String Sexo,String Pais,String Departamento);
     void registrarboleto(String nombres,String apellidos,String correo,Integer Doc_ident,
-    String Sexo,String Pais,String Departamento,String tipo);
+    String Sexo,String Pais,String Departamento,String tipo,String ubicacion);
 }

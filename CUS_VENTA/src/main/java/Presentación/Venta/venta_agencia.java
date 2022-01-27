@@ -1,6 +1,7 @@
 
 import Interfaces.Persistencia;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,7 +13,7 @@ import javax.swing.ButtonGroup;
  *
  * @author USER
  */
-public class venta_web extends javax.swing.JFrame {
+public class venta_agencia extends javax.swing.JFrame {
 
     /**
      * Creates new form venta_web
@@ -20,14 +21,25 @@ public class venta_web extends javax.swing.JFrame {
     Persistencia persistencia;
     ButtonGroup grupo;
     String nombres, apellidos, correo, pais, sexo = "", tipo_boleto = "", departamento;
+    String ubicacion;
     int dni;
     
-    public venta_web() {
+    public venta_agencia() {
         initComponents();
         grupo = new ButtonGroup();
         grupo.add(jRadioButton1_masculino);
         grupo.add(jRadioButton2_femenino);
+        
+       Tipoboleto.addItem("boleto_TipoA");
+       Tipoboleto.addItem("boleto_TipoB");
+       
+       zona.addItem("Norte");
+       zona.addItem("Sur");
+       zona.addItem("Explanada");
+       zona.addItem("Butacas");
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,7 +70,10 @@ public class venta_web extends javax.swing.JFrame {
         jRadioButton2_femenino = new javax.swing.JRadioButton();
         jButton1_confirmar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        Tipoboleto_combobox = new javax.swing.JComboBox<>();
+        Tipoboleto = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        zona = new javax.swing.JComboBox<>();
+        jButton1_confirmar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,7 +81,7 @@ public class venta_web extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Forte", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Venta de boletos");
+        jLabel1.setText("Registro de boletos");
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombres");
@@ -121,7 +136,7 @@ public class venta_web extends javax.swing.JFrame {
             }
         });
 
-        jButton1_confirmar.setText("Confirmar");
+        jButton1_confirmar.setText("Registrar venta");
         jButton1_confirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_confirmarActionPerformed(evt);
@@ -131,10 +146,37 @@ public class venta_web extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Tipo de boleto");
 
-        Tipoboleto_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Tipoboleto_combobox.addActionListener(new java.awt.event.ActionListener() {
+        Tipoboleto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        Tipoboleto.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                TipoboletoItemStateChanged(evt);
+            }
+        });
+        Tipoboleto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Tipoboleto_comboboxActionPerformed(evt);
+                TipoboletoActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Ubicacion");
+
+        zona.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        zona.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                zonaItemStateChanged(evt);
+            }
+        });
+        zona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zonaActionPerformed(evt);
+            }
+        });
+
+        jButton1_confirmar1.setText("Cancelar");
+        jButton1_confirmar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_confirmar1ActionPerformed(evt);
             }
         });
 
@@ -145,80 +187,92 @@ public class venta_web extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(27, 27, 27)
                                 .addComponent(jTextField3_Doc_identidad, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(27, 27, 27)
-                                    .addComponent(jTextField2_Apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addGap(27, 27, 27)
-                                    .addComponent(jTextField1_Nombres, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addComponent(jLabel1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(61, 61, 61))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel5)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(jTextField4_Correo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(Tipoboleto_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel6)
-                                            .addGap(27, 27, 27)
-                                            .addComponent(jTextField5_pais, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(82, 82, 82)
+                                        .addGap(48, 48, 48)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField6_departamento, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextField4_Correo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField5_pais, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Tipoboleto, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(53, 53, 53)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addGap(18, 18, 18)
                                         .addComponent(jRadioButton1_masculino)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton2_femenino))))))
+                                        .addComponent(jRadioButton2_femenino))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel7)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(11, 11, 11)
+                                                .addComponent(jLabel10)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextField6_departamento)
+                                            .addComponent(zona, 0, 108, Short.MAX_VALUE)))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(jTextField2_Apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(jTextField1_Nombres, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton1_confirmar)
+                                    .addComponent(jButton1_confirmar1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(54, 54, 54))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
-                        .addComponent(jLabel9))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(258, 258, 258)
-                        .addComponent(jButton1_confirmar)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                        .addComponent(jLabel9)))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
-                .addGap(41, 41, 41)
+                .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1_Nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1_Nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1_confirmar))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2_Apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField2_Apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1_confirmar1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextField3_Doc_identidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4_Correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jRadioButton1_masculino)
-                    .addComponent(jRadioButton2_femenino))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel8)
+                        .addComponent(jRadioButton1_masculino)
+                        .addComponent(jRadioButton2_femenino))
+                    .addComponent(jTextField4_Correo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -233,17 +287,20 @@ public class venta_web extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(Tipoboleto_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1_confirmar)
-                .addContainerGap(10, Short.MAX_VALUE))
+                    .addComponent(Tipoboleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10)
+                        .addComponent(zona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,28 +322,29 @@ public class venta_web extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2_ApellidosActionPerformed
 
-    private void Tipoboleto_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tipoboleto_comboboxActionPerformed
+    private void TipoboletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TipoboletoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Tipoboleto_comboboxActionPerformed
+    }//GEN-LAST:event_TipoboletoActionPerformed
 
     private void jButton1_confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_confirmarActionPerformed
-        
+   
         nombres = jTextField1_Nombres.getText();
         apellidos = jTextField2_Apellidos.getText();
         correo = jTextField4_Correo.getText();
         pais = jTextField5_pais.getText();
         departamento = jTextField6_departamento.getText();
         dni = Integer.parseInt(jTextField3_Doc_identidad.getText());
+     
         if(jRadioButton1_masculino.isSelected())
-            sexo += "Masculino";
+            sexo = "Masculino";
         if(jRadioButton2_femenino.isSelected())
-            sexo += "Femenino";
-        tipo_boleto += Tipoboleto_combobox.getSelectedItem().toString();
-        persistencia.registrarboleto(nombres, apellidos, correo, dni, sexo, pais, departamento, sexo);
-        Ventaxweb usuario = new Ventaxweb(persistencia);
-        Redireccion r = new Redireccion();
-        r.setVisible(true);
+            sexo = "Femenino";
         
+        tipo_boleto = Tipoboleto.getSelectedItem().toString();
+        ubicacion = Tipoboleto.getSelectedItem().toString();
+        Ventaxagencias venta = new Ventaxagencias(persistencia);
+        venta.registrardatosdeboleto(nombres, apellidos, correo, dni, sexo, pais, departamento, tipo_boleto,ubicacion);
+        JOptionPane.showMessageDialog(null, "Operación realizada correctamente");
     }//GEN-LAST:event_jButton1_confirmarActionPerformed
 
     private void jTextField6_departamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6_departamentoActionPerformed
@@ -296,6 +354,22 @@ public class venta_web extends javax.swing.JFrame {
     private void jRadioButton2_femeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2_femeninoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2_femeninoActionPerformed
+
+    private void TipoboletoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_TipoboletoItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TipoboletoItemStateChanged
+
+    private void zonaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_zonaItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zonaItemStateChanged
+
+    private void zonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zonaActionPerformed
+
+    private void jButton1_confirmar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_confirmar1ActionPerformed
+        
+    }//GEN-LAST:event_jButton1_confirmar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -327,16 +401,18 @@ public class venta_web extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new venta_web().setVisible(true);
+                new venta_agencia().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> Tipoboleto_combobox;
+    private javax.swing.JComboBox<String> Tipoboleto;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1_confirmar;
+    private javax.swing.JButton jButton1_confirmar1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -354,5 +430,7 @@ public class venta_web extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4_Correo;
     private javax.swing.JTextField jTextField5_pais;
     private javax.swing.JTextField jTextField6_departamento;
+    private javax.swing.JComboBox<String> zona;
     // End of variables declaration//GEN-END:variables
+
 }

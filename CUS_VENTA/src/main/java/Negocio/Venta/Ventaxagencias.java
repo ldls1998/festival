@@ -13,13 +13,13 @@ import Interfaces.Ventaxagen_viajes;
  *
  * @author USER
  */
-public class Ventaxagenciaviajes implements Venta, Ventaxagen_viajes{
+public class Ventaxagencias implements Venta, Ventaxagen_viajes{
 
    Persistencia persistencia;
 
   
 
-    public Ventaxagenciaviajes(Persistencia persistencia) {
+    public Ventaxagencias(Persistencia persistencia) {
         this.persistencia = persistencia;
     }
   
@@ -35,9 +35,9 @@ public class Ventaxagenciaviajes implements Venta, Ventaxagen_viajes{
     
       @Override
     public void registrardatosdeboleto(String nombres,String apellidos,String correo,Integer Doc_ident,
-    String Sexo,String Pais,String Departamento,String tipo) {
+    String Sexo,String Pais,String Departamento,String tipo,String ubicacion) {
      //Registrar venta de boletos de festival
-     persistencia.registrarboleto(nombres, apellidos, correo, Doc_ident, Sexo, Pais, Departamento, tipo);
+    // persistencia.registrarboleto(nombres, apellidos, correo, Doc_ident, Sexo, Pais, Departamento, tipo,ubicacion);
     }
     
     

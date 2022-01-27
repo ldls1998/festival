@@ -9,5 +9,4 @@ package Interfaces;
 public interface Ventaxagen_viajes {
      void registrardatosdelviaje(String nombres,String apellidos,String correo,Integer Doc_ident,
     String Sexo,String Pais,String Departamento);
-
 }
