@@ -8,6 +8,8 @@
  *
  * @author USER
  */
+
+/*Principio  SOLID de responsabilidad única*/
 class Boleto_tipoB extends Boleto  {
 
     @Override

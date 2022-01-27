@@ -18,8 +18,9 @@ public class VentaBO {
 	public VentaBO() {
 		ventas = new ArrayList<>();
 		TOVenta venta1= new TOVenta("Jose","Perez",78945612,"probando@gmail.com","Chile","Santiago","Boleto tipo A","Explanada","masculino");
-	
+                TOVenta venta2= new TOVenta("Mariana","Balceda",456789123,"probando123@gmail.com","Argentina","Buenos Aires","Boleto tipo B","Sur","femenino");
 		ventas.add(venta1);
+                ventas.add(venta2);
 		
 	}
         

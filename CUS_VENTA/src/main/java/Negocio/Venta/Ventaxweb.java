@@ -3,11 +3,6 @@ import Interfaces.Persistencia;
 import Interfaces.Venta;
 
 
-
-
-
-
-
 /**
  *
  * @author USER

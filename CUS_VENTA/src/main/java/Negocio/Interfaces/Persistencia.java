@@ -9,6 +9,7 @@ package Interfaces;
  *
  * @author USER
  */
+/*Principio solid D*/
 public interface Persistencia {
     void registrarviaje(String nombres,String apellidos,String correo,Integer Doc_ident,
     String Sexo,String Pais,String Departamento);

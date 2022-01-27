@@ -30,14 +30,14 @@ public class Ventaxagencias implements Venta, Ventaxagen_viajes{
     public void registrardatosdelviaje(String nombres,String apellidos,String correo,Integer Doc_ident,
     String Sexo,String Pais,String Departamento) { 
      //Registrar venta de boletos de viaje
-     persistencia.registrarviaje(nombres, apellidos, correo, Doc_ident, Sexo, Pais, Departamento);
+     //persistencia.registrarviaje(nombres, apellidos, correo, Doc_ident, Sexo, Pais, Departamento);
     }
     
       @Override
     public void registrardatosdeboleto(String nombres,String apellidos,String correo,Integer Doc_ident,
     String Sexo,String Pais,String Departamento,String tipo,String ubicacion) {
      //Registrar venta de boletos de festival
-    // persistencia.registrarboleto(nombres, apellidos, correo, Doc_ident, Sexo, Pais, Departamento, tipo,ubicacion);
+    //persistencia.registrarboleto(nombres, apellidos, correo, Doc_ident, Sexo, Pais, Departamento, tipo,ubicacion);
     }
     
     

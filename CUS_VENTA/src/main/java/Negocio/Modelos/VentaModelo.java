@@ -9,6 +9,8 @@ package Negocio;
  *
  * @author USER
  */
+
+/*TO */
 public class VentaModelo {
    
 	private String nombres;

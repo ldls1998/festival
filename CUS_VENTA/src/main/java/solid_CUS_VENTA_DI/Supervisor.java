@@ -15,16 +15,16 @@ public class Supervisor {
     public Supervisor(IVenta venta) {
         this.venta = venta;
     }
-/*
-    public double totalVentas() {
-        double total = 0;
+
+    public void totalVentas() {
+        
         Iterable<Boleto> boleto = venta.obtenerVentas();
 
         for (Boleto b : boleto){
                 System.out.println(b.toString());
-                total = total +1;
+            
         }
-        return total;
+       
     }
-*/
+
 }
