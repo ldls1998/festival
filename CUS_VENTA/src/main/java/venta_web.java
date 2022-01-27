@@ -1,4 +1,5 @@
 
+import Interfaces.Persistencia;
 import javax.swing.ButtonGroup;
 
 /*
@@ -16,6 +17,7 @@ public class venta_web extends javax.swing.JFrame {
     /**
      * Creates new form venta_web
      */
+    Persistencia persistencia;
     ButtonGroup grupo;
     String nombres, apellidos, correo, pais, sexo = "", tipo_boleto = "", departamento;
     int dni;
@@ -280,8 +282,8 @@ public class venta_web extends javax.swing.JFrame {
         if(jRadioButton2_femenino.isSelected())
             sexo += "Femenino";
         tipo_boleto += Tipoboleto_combobox.getSelectedItem().toString();
-        
-        //Ventaxweb usuario = new Ventaxweb();
+        persistencia.registrarboleto(nombres, apellidos, correo, dni, sexo, pais, departamento, sexo);
+        Ventaxweb usuario = new Ventaxweb(persistencia);
         Redireccion r = new Redireccion();
         r.setVisible(true);
         
