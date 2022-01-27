@@ -20,10 +20,10 @@ class Ventaxagenciaeventos implements Venta  {
   
 
     @Override
-    public void registrardatosdeboleto(Integer id,String nombres,String apellidos,String correo,Integer Doc_ident,
+    public void registrardatosdeboleto(String nombres,String apellidos,String correo,Integer Doc_ident,
     String Sexo,String Pais,String Departamento,String tipo) {
         //Registrar venta de boleto por agencia
-         persistencia.registrarboleto(id,nombres,apellidos,correo,Doc_ident,Sexo,Pais,Departamento,tipo);
+         persistencia.registrarboleto(nombres,apellidos,correo,Doc_ident,Sexo,Pais,Departamento,tipo);
     }
     
 }
