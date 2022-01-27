@@ -106,7 +106,10 @@ public class TOVenta {
         }
         @Override
 	public String toString() {
-		return this.getNombres()+" "+this.getApellidos();
+		return this.getNombres()+" "+this.getApellidos()+" \n "
+                        + "Boleto  "+ 
+                        this.getTipo_boleto()+" \n "+
+                        "Ubicacion  "+this.getUbicacion();
 	}
         
         
