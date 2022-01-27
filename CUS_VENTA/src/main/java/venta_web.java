@@ -1,3 +1,6 @@
+
+import javax.swing.ButtonGroup;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,8 +16,15 @@ public class venta_web extends javax.swing.JFrame {
     /**
      * Creates new form venta_web
      */
+    ButtonGroup grupo;
+    String nombres, apellidos, correo, pais, sexo = "", tipo_boleto = "", departamento;
+    int dni;
+    
     public venta_web() {
         initComponents();
+        grupo = new ButtonGroup();
+        grupo.add(jRadioButton1_masculino);
+        grupo.add(jRadioButton2_femenino);
     }
 
     /**
@@ -59,8 +69,20 @@ public class venta_web extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombres");
 
+        jTextField1_Nombres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1_NombresActionPerformed(evt);
+            }
+        });
+
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Apellidos");
+
+        jTextField2_Apellidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2_ApellidosActionPerformed(evt);
+            }
+        });
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Doc. identidad");
@@ -74,8 +96,14 @@ public class venta_web extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Departamento");
 
+        jTextField6_departamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6_departamentoActionPerformed(evt);
+            }
+        });
+
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Pais");
+        jLabel8.setText("Sexo");
 
         jRadioButton1_masculino.setText("Masculino");
         jRadioButton1_masculino.addActionListener(new java.awt.event.ActionListener() {
@@ -85,13 +113,28 @@ public class venta_web extends javax.swing.JFrame {
         });
 
         jRadioButton2_femenino.setText("Femenino");
+        jRadioButton2_femenino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2_femeninoActionPerformed(evt);
+            }
+        });
 
         jButton1_confirmar.setText("Confirmar");
+        jButton1_confirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_confirmarActionPerformed(evt);
+            }
+        });
 
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Tipo de boleto");
 
         Tipoboleto_combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Tipoboleto_combobox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tipoboleto_comboboxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -148,7 +191,7 @@ public class venta_web extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(258, 258, 258)
                         .addComponent(jButton1_confirmar)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,6 +254,46 @@ public class venta_web extends javax.swing.JFrame {
     private void jRadioButton1_masculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1_masculinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1_masculinoActionPerformed
+
+    private void jTextField1_NombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_NombresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1_NombresActionPerformed
+
+    private void jTextField2_ApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2_ApellidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2_ApellidosActionPerformed
+
+    private void Tipoboleto_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tipoboleto_comboboxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Tipoboleto_comboboxActionPerformed
+
+    private void jButton1_confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_confirmarActionPerformed
+        
+        nombres = jTextField1_Nombres.getText();
+        apellidos = jTextField2_Apellidos.getText();
+        correo = jTextField4_Correo.getText();
+        pais = jTextField5_pais.getText();
+        departamento = jTextField6_departamento.getText();
+        dni = Integer.parseInt(jTextField3_Doc_identidad.getText());
+        if(jRadioButton1_masculino.isSelected())
+            sexo += "Masculino";
+        if(jRadioButton2_femenino.isSelected())
+            sexo += "Femenino";
+        tipo_boleto += Tipoboleto_combobox.getSelectedItem().toString();
+        
+        //Ventaxweb usuario = new Ventaxweb();
+        Redireccion r = new Redireccion();
+        r.setVisible(true);
+        
+    }//GEN-LAST:event_jButton1_confirmarActionPerformed
+
+    private void jTextField6_departamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6_departamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6_departamentoActionPerformed
+
+    private void jRadioButton2_femeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2_femeninoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2_femeninoActionPerformed
 
     /**
      * @param args the command line arguments
