@@ -111,6 +111,5 @@ public class TOVenta {
                         this.getTipo_boleto()+" \n "+
                         "Ubicacion  "+this.getUbicacion();
 	}
-        
-        
+ 
 }
