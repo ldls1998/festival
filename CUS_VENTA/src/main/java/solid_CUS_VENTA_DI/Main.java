@@ -11,12 +11,12 @@ public class Main {
         venta.registrarVenta(new Boleto("Mariana","Balceda",456789123,"probando123@gmail.com","Argentina","Buenos Aires","Boleto tipo B","Sur","femenino"));
       
         System.out.println("---------------------------------");
-
+/*
         Supervisor supervisor = new Supervisor();
         total = supervisor.totalVentas();
 
         System.out.println("El total de ventas es : " + total);
-
+*/
     
     }
 }

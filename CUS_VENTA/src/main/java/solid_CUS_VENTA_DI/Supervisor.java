@@ -9,13 +9,13 @@ import solid_CUS_VENTA_DI.IVenta;
 public class Supervisor {
 
     // tendra una referencia y podra trabajar con cualquiera que implemente a IVenta
-    private final IVenta venta;
+    private IVenta venta;
 
  
     public Supervisor(IVenta venta) {
         this.venta = venta;
     }
-
+/*
     public double totalVentas() {
         double total = 0;
         Iterable<Boleto> boleto = venta.obtenerVentas();
@@ -26,5 +26,5 @@ public class Supervisor {
         }
         return total;
     }
-
+*/
 }

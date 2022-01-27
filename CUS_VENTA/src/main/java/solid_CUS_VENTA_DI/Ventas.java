@@ -14,7 +14,7 @@ public class Ventas implements IVenta {
 
     public void registrarVenta(Boleto boleto) {
         boletos.add(boleto);
-        System.out.println("Registramos: " + boleto.getNombres());
+        System.out.println("Registramos venta de : " + boleto.getNombres());
     }
 
     /**
@@ -23,6 +23,8 @@ public class Ventas implements IVenta {
      * 
      * @return
      */
+    
+    
     @Override
     public Iterable<Boleto> obtenerVentas() {
         List<Boleto> encontrados = new ArrayList<>();
